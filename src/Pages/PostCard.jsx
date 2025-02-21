@@ -5,11 +5,7 @@ export default function PostCard({ post }) {
     <div className="max-w-lg bg-white shadow-md rounded-lg p-4 mb-6">
       {/* User Info */}
       <div className="flex items-center mb-3">
-        <img
-          src={post.userProfile}
-          alt="User"
-          className="w-10 h-10 rounded-full mr-3"
-        />
+        
         <div>
           <h4 className="font-semibold">{post.userName}</h4>
           <p className="text-sm text-gray-500">{post.timestamp}</p>
@@ -17,11 +13,11 @@ export default function PostCard({ post }) {
       </div>
 
       {/* Post Content (Image or Video) */}
-      {post.media && (
+      {post.mediaUrl && (
         <div className="mb-3">
           {post.mediaType === "image" ? (
             <img
-              src={post.mediaURL}
+              src={post.mediaUrl}
               alt="Post"
               className="w-full h-64 object-cover rounded-lg"
             />

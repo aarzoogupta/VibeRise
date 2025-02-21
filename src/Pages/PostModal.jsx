@@ -3,44 +3,36 @@ import useAddPost from "../hooks/useAddPost";
 
 export default function PostModal({ isOpen, onClose }) {
   const [media, setMedia] = useState(null);
-  const [mediaType, setMediaType] = useState(null);
   const [text, setText] = useState("");
 
-  // Get user from localStorage (you can replace this with Firebase Auth)
+  // Get user from localStorage
   const user = JSON.parse(localStorage.getItem("user"));
-  const userId = user?.uid; // Ensure uid is stored in localStorage
-
-  const handleMediaChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setMedia(file);
-    }
-  };
+  const userId = user?.uid; 
 
   const handleSubmit = async () => {
     if (!text && !media) return;
 
     const postData = {
       text,
-      mediaUrl: media, // 🔴 Upload media to Firebase Storage (not just URL.createObjectURL)
-      mediaType,
+      mediaUrl: media,
+      mediaType: "image",
       userId,
     };
 
     const result = await useAddPost(postData);
 
     if (result.success) {
-      alert(result.message); // Use toast for better UI feedback
-      onClose(); // Close modal after posting
+      alert(result.message);
+      onClose();
     } else {
       alert(result.message);
     }
   };
 
-  if (!isOpen) return null; // Hide modal if not open
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-pink-500 via-purple-700 to-blue-500 z-50">
       <div className="bg-white p-6 rounded-lg shadow-lg w-96 text-black">
         <h2 className="text-lg font-bold mb-3">Create a New Post</h2>
 
@@ -49,28 +41,14 @@ export default function PostModal({ isOpen, onClose }) {
         </h2>
 
         {/* Media Upload */}
-        {/* Media Upload */}
-<label className="mt-3 my-2 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform duration-200">
-  Enter Image URL 📤
-  <input 
-    type="text" 
-    onChange={handleMediaChange} 
-    className="ml-2 px-2 py-1 text-black rounded-md border border-gray-300 focus:outline-none"
-  />
-</label>
-
-
-        {media && (
-          <div className="mb-3">
-            {mediaType === "image" ? (
-              <img src={media} alt="Preview" className="w-full h-40 object-cover rounded" />
-            ) : (
-              <video controls className="w-full h-40 rounded">
-                <source src={media} type="video/mp4" />
-              </video>
-            )}
-          </div>
-        )}
+        <label className="mt-3 my-2 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform duration-200">
+          Enter Image URL 📤
+          <input 
+            type="text" 
+            onChange={(e) => setMedia(e.target.value)}
+            className="ml-2 px-2 py-1 text-black rounded-md border border-gray-300 focus:outline-none"
+          />
+        </label>
 
         {/* Post Text */}
         <textarea

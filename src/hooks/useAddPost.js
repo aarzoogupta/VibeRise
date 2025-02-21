@@ -9,7 +9,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
  * @param {Object} postData - { text, mediaFile, mediaType }
  * @returns {Promise<Object>} - { success: boolean, message: string }
  */
-const useAddPost = async ({ text, mediaFile, mediaType }) => {
+const useAddPost = async ({ text, mediaUrl, mediaType }) => {
   try {
     // Retrieve logged-in user details from localStorage
     const user = JSON.parse(localStorage.getItem("user"));
@@ -18,14 +18,7 @@ const useAddPost = async ({ text, mediaFile, mediaType }) => {
     }
 
     const userId = user.id;
-    let mediaUrl = "";
-
-    // If media is uploaded, store it in Firebase Storage
-    if (mediaFile) {
-      const storageRef = ref(storage, `posts/${userId}/${Date.now()}_${mediaFile.name}`);
-      const snapshot = await uploadBytes(storageRef, mediaFile); // Upload file
-      mediaUrl = await getDownloadURL(snapshot.ref); // Get the file URL
-    }
+    
 
     // Reference to the user's posts subcollection
     const postsRef = collection(db, `users/${userId}/posts`);

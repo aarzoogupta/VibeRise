@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { db } from "../firebase/FirebaseConfig";
+import { db } from "../Firebase/FirebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { format } from "date-fns"; // Import date-fns for formatting
 

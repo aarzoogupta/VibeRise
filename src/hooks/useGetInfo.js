@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { db } from "../firebase/FirebaseConfig"; // Adjust based on your file structure
+import { db } from "../Firebase/FirebaseConfig"; // Adjust based on your file structure
 import { collection, query, where, getDocs } from "firebase/firestore";
 
 const useGetInfo = () => {

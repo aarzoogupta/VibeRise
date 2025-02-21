@@ -21,7 +21,7 @@ export default function PostCard({ post }) {
         <div className="mb-3">
           {post.mediaType === "image" ? (
             <img
-              src={post.media}
+              src={post.mediaURL}
               alt="Post"
               className="w-full h-64 object-cover rounded-lg"
             />

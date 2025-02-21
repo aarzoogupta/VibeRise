@@ -13,8 +13,7 @@ export default function PostModal({ isOpen, onClose }) {
   const handleMediaChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setMedia(URL.createObjectURL(file));
-      setMediaType(file.type.startsWith("image") ? "image" : "video");
+      setMedia(file);
     }
   };
 
@@ -50,10 +49,16 @@ export default function PostModal({ isOpen, onClose }) {
         </h2>
 
         {/* Media Upload */}
-        <label className="mt-3 my-2 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform duration-200">
-          📤 Choose File
-          <input type="file" accept="image/*,video/*" onChange={handleMediaChange} className="hidden" />
-        </label>
+        {/* Media Upload */}
+<label className="mt-3 my-2 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform duration-200">
+  Enter Image URL 📤
+  <input 
+    type="text" 
+    onChange={handleMediaChange} 
+    className="ml-2 px-2 py-1 text-black rounded-md border border-gray-300 focus:outline-none"
+  />
+</label>
+
 
         {media && (
           <div className="mb-3">

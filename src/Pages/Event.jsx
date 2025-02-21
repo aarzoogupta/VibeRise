@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { fireDB } from "../Firebase/FirebaseConfig";
 import Layout from "../Component/Layout";
-
+import { motion } from "framer-motion";
 function EventPage() {
   const [events, setEvents] = useState([]);
 
@@ -17,14 +17,18 @@ function EventPage() {
 
   return (
     <Layout>
-     <div className="p-6 min-h-screen  text-gray-900">
+     <div 
+     className="p-6 min-h-screen  text-gray-900">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">🎭 Upcoming Events</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {events.length === 0 ? (
           <p className="text-center text-gray-500">No events available.</p>
         ) : (
           events.map(event => (
-            <div key={event.id} className="bg-pink-200 shadow-lg rounded-lg p-6 relative">
+            <motion.div key={event.id} 
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.2 }}
+            className="bg-pink-200 shadow-lg rounded-lg p-6 relative">
               {event.imageUrl && (
                 <img src={event.imageUrl} alt={event.Name} className="w-full h-40 object-cover rounded-lg mb-4" />
               )}
@@ -41,7 +45,7 @@ function EventPage() {
               <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg w-full">
                 Apply Now
               </button>
-            </div>
+            </motion.div>
           ))
         )}
       </div>

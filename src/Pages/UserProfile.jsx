@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { collection, getDocs } from "firebase/firestore";
+import { fireDB } from "../Firebase/FirebaseConfig";
+import { motion } from "framer-motion";
 function UserProfile() {
   const [tab, setTab] = useState("overview");
   const navigate = useNavigate();
-  const eventCount = 3;
-  const maxEvents = 5;
+  const [events, setEvents] = useState([]);
 
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const snapshot = await getDocs(collection(fireDB, "events"));
+      setEvents(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    };
+    fetchEvents();
+  }, []);
+
+  let eventCount=events.length;
+  let maxEvents=5;
   const handleOrganizeEvent = () => {
     if (eventCount < maxEvents) {
       navigate("/organize-event");
@@ -15,26 +26,29 @@ function UserProfile() {
       navigate("/premium");
     }
   };
+  const [aboutMe, setAboutMe] = useState([
+    "Sunidhi Chauhan is an Indian playback singer. Known for her vocal range and versatility, she has recorded songs for films in several Indian languages and received accolades including three Filmfare Awards and a Filmfare Award South .She is often praised for her charismatic stage presence and Vocal belting ability.Passionate artist bringing creativity to life. Always looking for new opportunities!"
+  ]);
+  const [newInfo, setNewInfo] = useState("");
+  const [showInput, setShowInput] = useState(false); 
 
+  const handleAddClick = () => {
+    setShowInput(true); 
+  };
+
+  const addInformation = () => {
+    if (newInfo.trim() !== "") {
+      setAboutMe([...aboutMe, newInfo]);
+      setNewInfo(""); 
+      setShowInput(false); 
+    }
+  };
   return (
-    <div className="min-h-screen bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-opacity-30 text-white p-6">
-      <div className="shadow-xl rounded-2xl p-6 flex items-center w-3/4 mx-auto">
-        {/* SVG Profile Image */}
-        <div className="w-24 h-24 rounded-full border-4 border-yellow-200 bg-gray-700 flex items-center justify-center">
-          <svg
-            className="w-16 h-16 text-yellow-200"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 14l9-5-9-5-9 5 9 5zm0 0v7"
-            />
-          </svg>
+    <div className="min-h-screen bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-opacity-30 text-black p-6 border">
+      <div className="shadow-xl rounded-2xl p-6 flex items-center w-3/4 mx-auto border border-white">
+        <div className="w-24 h-24 rounded-full border-4 border-yellow-200  flex items-center justify-center">
+         <img>
+         </img>
         </div>
 
         <div className="ml-6">
@@ -43,7 +57,7 @@ function UserProfile() {
         </div>
       </div>
 
-      {/* Tabs */}
+    
       <div className="flex justify-center mt-6 space-x-6 text-lg font-semibold border-b border-yellow-200">
         {["overview", "events", "work", "sponsorships"].map((item) => (
           <button
@@ -58,19 +72,53 @@ function UserProfile() {
         ))}
       </div>
 
-      {/* Tab Content */}
-      <div className="mt-6 w-3/4 mx-auto">
+     
+      <motion.div 
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.2 }}
+      className="mt-6 w-3/4 mx-auto">
         {tab === "overview" && (
-          <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <div className=" p-6 rounded-lg shadow-lg border border-white ">
             <h2 className="text-xl font-semibold text-yellow-200">About Me</h2>
-            <p className="text-gray-300 mt-2">
-              Passionate artist bringing creativity to life. Always looking for new opportunities!
+        {!showInput && (
+          <button
+            onClick={handleAddClick}
+            className="mt-4 bg-yellow-200 hover:bg-yellow-400 text-gray-900 py-2 px-4 rounded"
+          >
+            Add about yourself!!
+          </button>
+        )}
+
+        {/* Input Box appears when showInput is true */}
+        {showInput && (
+          <div className="mt-4">
+            <textarea
+              value={newInfo}
+              onChange={(e) => setNewInfo(e.target.value)}
+              placeholder="Write about yourself..."
+              className="w-full p-2 border rounded text-black-900"
+            />
+            <button
+              onClick={addInformation}
+              className="mt-2 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+            >
+              Save
+            </button>
+          </div>
+        )}
+
+        <div className="mt-4">
+          {aboutMe.map((info, index) => (
+            <p key={index} className="text-black-300 mt-2">
+              {info}
             </p>
+          ))}
+        </div>
           </div>
         )}
 
         {tab === "events" && (
-          <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <div className=" p-6 rounded-lg shadow-lg border border-white">
             <h2 className="text-xl font-semibold text-yellow-200">Your Events</h2>
             <ul className="mt-2 text-gray-300">
               <li>🎉 Dance Showcase – 15th March</li>
@@ -86,7 +134,7 @@ function UserProfile() {
         )}
 
         {tab === "work" && (
-          <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <div className=" p-6 rounded-lg shadow-lg border border-white">
             <h2 className="text-xl font-semibold text-yellow-200">Showcased Work</h2>
             <div className="mt-2 grid grid-cols-2 gap-4">
               <img src="https://via.placeholder.com/150" alt="Work 1" className="rounded-lg" />
@@ -96,7 +144,7 @@ function UserProfile() {
         )}
 
         {tab === "sponsorships" && (
-          <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <div className=" p-6 rounded-lg shadow-lg border border-white">
             <h2 className="text-xl font-semibold text-yellow-200">Sponsorships</h2>
             <p className="text-gray-300 mt-2">🎗 You have received $500 in sponsorships.</p>
             <button className="mt-4 bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">
@@ -104,7 +152,7 @@ function UserProfile() {
             </button>
           </div>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }

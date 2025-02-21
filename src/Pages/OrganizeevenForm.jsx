@@ -31,7 +31,7 @@ function OrganizeEvent() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-opacity-10 color-black p-6 flex justify-center items-center">
-      <form onSubmit={handleSubmit} className="bg-white-400 text-white p-6 rounded-lg shadow-lg w-full max-w-lg border border-white-500">
+      <form onSubmit={handleSubmit} className="bg-white-400 text-black p-6 rounded-lg shadow-lg w-full max-w-lg border border-white-500">
         <h2 className="text-2xl font-semibold text-yellow-200 mb-4 text-center">🎭 Organize an Event</h2>
 
         <label className="block mb-2">Event Name</label>
@@ -41,7 +41,7 @@ function OrganizeEvent() {
           placeholder="Enter event name"
           value={formData.Name}
           onChange={handleChange}
-          className="w-full p-2 rounded  border border-gray-700"
+          className="w-full p-2 text-black-500 rounded  border border-gray-700"
           required
         />
 
@@ -51,7 +51,7 @@ function OrganizeEvent() {
           name="type"
           value={formData.type}
           onChange={handleChange}
-          className="w-full p-2 rounded  border border-gray-700"
+          className="w-full p-2 text-black-500 rounded  border border-gray-700"
           required
         >
           <option value="">Select event type</option>
@@ -67,7 +67,7 @@ function OrganizeEvent() {
           type="datetime-local"
           name="dateTime"
           onChange={handleChange}
-          className="w-full p-2 rounded  border border-gray-700"
+          className="w-full p-2 text-black-500 rounded  border border-gray-700"
           required
         />
 
@@ -79,7 +79,7 @@ function OrganizeEvent() {
           placeholder="Enter venue name"
           value={formData.venue}
           onChange={handleChange}
-          className="w-full p-2 rounded  border border-gray-700"
+          className="w-full p-2 text-black-500 rounded  border border-gray-700"
           required
         />
 
@@ -91,7 +91,7 @@ function OrganizeEvent() {
           placeholder="Enter venue address"
           value={formData.Address}
           onChange={handleChange}
-          className="w-full p-2 rounded  border border-gray-700"
+          className="w-full p-2 text-black-500 rounded  border border-gray-700"
           required
         />
 
@@ -103,7 +103,7 @@ function OrganizeEvent() {
           placeholder="Enter organizer name"
           value={formData.OrganizerName}
           onChange={handleChange}
-          className="w-full p-2 rounded  border border-gray-700"
+          className="w-full p-2 text-black-500 rounded  border border-gray-700"
           required
         />
 
@@ -115,7 +115,7 @@ function OrganizeEvent() {
           placeholder="Enter contact details"
           value={formData.OrganizerContact}
           onChange={handleChange}
-          className="w-full p-2 rounded  border border-gray-700"
+          className="w-full p-2 text-black-500 rounded  border border-gray-700"
           required
         />
 
@@ -125,7 +125,7 @@ function OrganizeEvent() {
           name="isPaid"
           value={formData.isPaid}
           onChange={handleChange}
-          className="w-full p-2 rounded border border-gray-700"
+          className="w-full p-2  text-black-500 rounded border border-gray-700"
         >
           <option value="Free">Free</option>
           <option value="Paid">Paid</option>
@@ -141,7 +141,7 @@ function OrganizeEvent() {
               placeholder="Enter cost"
               value={formData.Cost}
               onChange={handleChange}
-              className="w-full p-2 rounded  border border-gray-700"
+              className="w-full text-black-500 p-2 rounded  border border-gray-700"
             />
           </div>
         )}
@@ -154,7 +154,7 @@ function OrganizeEvent() {
           placeholder="Paste image URL"
           value={formData.imageUrl}
           onChange={handleChange}
-          className="w-full p-2 rounded  border border-gray-700"
+          className="w-full text-black-500 p-2 rounded  border border-gray-700"
         />
 
         {/* Submit Button */}

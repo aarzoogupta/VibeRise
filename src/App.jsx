@@ -14,6 +14,8 @@ import Sponsorship from "./Pages/Sponsorship";
 import OrganizeEvent from "./Pages/OrganizeevenForm";
 import MyState from "./Context/Mystate";
 import MentorProfile from "./Pages/MentorProfile";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
 function App() {
   return (
     <div>
@@ -29,6 +31,8 @@ function App() {
           <Route path="/UserProfile" element={<UserProfile/>} />
           <Route path="/mentor/:id" element={<MentorProfile />} />
           <Route path="/mentor/:id" element={<MentorProfile />} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/signup" element={<Signup/>} />
         </Routes>
       </Router>
     </MyState> 

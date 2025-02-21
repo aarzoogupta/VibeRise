@@ -3,12 +3,12 @@ import React from "react";
 import MyContext from "./MyContext";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { toast } from "react-toastify";
-import { fireDB } from "../Firebase/FirebaseConfig";
+import { db } from "../Firebase/FirebaseConfig";
 
 function MyState({ children }) {
   const addEvent = async (formData) => {
     try {
-      const eventRef = collection(fireDB, "events");
+      const eventRef = collection(db, "events");
       await addDoc(eventRef, {
         ...formData,
         time: Timestamp.now(),

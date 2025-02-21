@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { fireDB } from "../Firebase/FirebaseConfig";
+import { db } from "../Firebase/FirebaseConfig";
 import Layout from "../Component/Layout";
 import { motion } from "framer-motion";
 function EventPage() {
@@ -9,7 +9,7 @@ function EventPage() {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const snapshot = await getDocs(collection(fireDB, "events"));
+      const snapshot = await getDocs(collection(db, "events"));
       setEvents(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
     };
     fetchEvents();

@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
-import { fireDB } from "../Firebase/FirebaseConfig";
+import { db } from "../Firebase/FirebaseConfig";
 import { motion } from "framer-motion";
 import Layout from "../Component/Layout";
 import PostModal from "./PostModal";
@@ -15,7 +15,7 @@ function UserProfile() {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const snapshot = await getDocs(collection(fireDB, "events"));
+      const snapshot = await getDocs(collection(db, "events"));
       setEvents(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
     };
     fetchEvents();

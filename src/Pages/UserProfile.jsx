@@ -27,6 +27,31 @@ function UserProfile() {
       navigate("/premium");
     }
   };
+
+    const userData = JSON.parse(localStorage.getItem("user"));  
+const userId = userData?.id;  
+console.log("Extracted userId:", userId);
+
+  const { posts, loading, error } = useGetPosts(userId);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [localPosts, setLocalPosts] = useState(posts); 
+
+  useEffect(() => {
+    if (posts.length > 0) {
+      setLocalPosts(posts);
+    }
+  }, [posts, isModalOpen]);
+
+  const handleNewPost = (newPost) => {
+    const postWithUser = {
+      ...newPost,
+      userProfile: "https://randomuser.me/api/portraits/women/44.jpg",
+      userName: "Jane Doe",
+      timestamp: "Just now",
+    };
+    setPosts([postWithUser, ...posts]); // Add new post to the top
+  };
+
   const [aboutMe, setAboutMe] = useState([
     "Sunidhi Chauhan is an Indian playback singer. Known for her vocal range and versatility, she has recorded songs for films in several Indian languages and received accolades including three Filmfare Awards and a Filmfare Award South .She is often praised for her charismatic stage presence and Vocal belting ability.Passionate artist bringing creativity to life. Always looking for new opportunities!"
   ]);
@@ -138,14 +163,38 @@ function UserProfile() {
           </div>
         )}
 
+       
         {tab === "work" && (
-          <div className=" p-6 rounded-lg shadow-lg border border-white">
-            <h2 className="text-xl font-semibold text-yellow-200">Showcased Work</h2>
-            <div className="mt-2 grid grid-cols-2 gap-4">
-              <img src="https://via.placeholder.com/150" alt="Work 1" className="rounded-lg" />
-              <img src="https://via.placeholder.com/150" alt="Work 2" className="rounded-lg" />
-            </div>
+          <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <div className="flex items-center space-x-5">
+          <h2 className="text-xl font-semibold text-yellow-200">Showcased Work</h2>
+          <button 
+          className="text-xl font-semibold border-2 border-pink-500 bg-pink-500 rounded-lg px-2 hover: cursor-pointer"
+          onClick={() => setIsModalOpen(true)}>
+            
+            Add more +
+            
+          </button>
           </div>
+
+          <div className="mt-2 grid grid-cols-2 gap-4">
+    
+          {/* Loading & Error Handling */}
+          {loading && <p className="text-gray-400">Loading posts...</p>}
+          {error && <p className="text-red-500">Error: {error}</p>}
+          {console.log(localPosts)}
+          {/* Post Cards */}
+          {localPosts.length > 0 ? (
+            localPosts.map((post, index) => <PostCard key={index} post={post} />)
+          ) : (
+            <p className="text-gray-500">No posts yet. Be the first to share!</p>
+          )}
+    
+          {/* Post Creation Modal */}
+          <PostModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onPost={handleNewPost} />
+        </div> 
+        </div>
+ 
         )}
 
         {tab === "sponsorships" && (

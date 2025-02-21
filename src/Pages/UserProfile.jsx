@@ -4,9 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { fireDB } from "../Firebase/FirebaseConfig";
 import { motion } from "framer-motion";
 import Layout from "../Component/Layout";
-import PostModal from "./PostModal";
-import PostCard from "./Postcard";
-import useGetPosts from "../hooks/useGetPosts";
+
 function UserProfile() {
   const [tab, setTab] = useState("overview");
   const navigate = useNavigate();

@@ -20,7 +20,11 @@ function EventPage() {
      <div 
      className="p-6 min-h-screen  text-gray-900">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">🎭 Upcoming Events</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <motion.div 
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {events.length === 0 ? (
           <p className="text-center text-gray-500">No events available.</p>
         ) : (
@@ -28,7 +32,7 @@ function EventPage() {
             <motion.div key={event.id} 
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.2 }}
-            className="bg-pink-200 shadow-lg rounded-lg p-6 relative">
+            className="bg-white shadow-lg rounded-lg p-6 relative">
               {event.imageUrl && (
                 <img src={event.imageUrl} alt={event.Name} className="w-full h-40 object-cover rounded-lg mb-4" />
               )}
@@ -48,7 +52,7 @@ function EventPage() {
             </motion.div>
           ))
         )}
-      </div>
+      </motion.div>
     </div>
     </Layout>
   );

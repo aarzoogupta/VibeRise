@@ -9,7 +9,7 @@ function Navbar() {
           <li><Link to="/" className="hover:text-yellow-200 transition duration-300">🏠 Home</Link></li>
           <li><Link to="/MentorConnect" className="hover:text-yellow-200 transition duration-300">🤝 MentorConnect</Link></li>
           <li><Link to="/Event" className="hover:text-yellow-200 transition duration-300">🎭 Events</Link></li>
-          <li><Link to="/discover" className="hover:text-yellow-200 transition duration-300">🌟 Discover</Link></li>
+          <li><Link to="/Discover" className="hover:text-yellow-200 transition duration-300">🌟 Discover</Link></li>
           <li><Link to="/sponsorships" className="hover:text-yellow-200 transition duration-300">💰 Sponsorships</Link></li>
           <li><Link to="/UserProfile" className="hover:text-yellow-200 transition duration-300">👤 Profile</Link></li>
         </ul>

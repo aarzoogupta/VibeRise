@@ -13,6 +13,7 @@ import Discover from "./Pages/Discover";
 import Sponsorship from "./Pages/Sponsorship";
 import OrganizeEvent from "./Pages/OrganizeevenForm";
 import MyState from "./Context/Mystate";
+import MentorProfile from "./Pages/MentorProfile";
 function App() {
   return (
     <div>
@@ -26,6 +27,8 @@ function App() {
           <Route path="/sponsorships" element={<Sponsorship/>} />
           <Route path="/organize-event" element={<OrganizeEvent/>} />
           <Route path="/UserProfile" element={<UserProfile/>} />
+          <Route path="/mentor/:id" element={<MentorProfile />} />
+          <Route path="/mentor/:id" element={<MentorProfile />} />
         </Routes>
       </Router>
     </MyState> 

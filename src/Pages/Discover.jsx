@@ -1,10 +1,11 @@
 import React from 'react'
 import Layout from '../Component/Layout'
+import DiscoverArtists from '../Component/DiscoverArtists'
 
 function Discover() {
   return (
     <Layout>
-        Discover
+        <DiscoverArtists />
     </Layout>
   )
 }

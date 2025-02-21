@@ -2,7 +2,7 @@ import React from "react";
 
 const TrustedBy = () => {
   return (
-    <section className="py-12 bg-gradient-to-b from-purple-300 to-purple-200">
+    <section className="py-12 ">
       <div className="container mx-auto text-center">
         <h2 className="text-2xl font-bold mb-4 text-purple-600">Trusted By</h2>
         <div className="flex justify-center space-x-8">

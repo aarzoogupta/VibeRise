@@ -24,7 +24,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-b from-purple-300 to-purple-200">
+    <section className="py-12 md:py-20 ">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { fireDB } from "../Firebase/FirebaseConfig";
 import { motion } from "framer-motion";
+import Layout from "../Component/Layout";
 function UserProfile() {
   const [tab, setTab] = useState("overview");
   const navigate = useNavigate();
@@ -44,7 +45,11 @@ function UserProfile() {
     }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-opacity-30 text-black p-6 border">
+    <motion.div 
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="min-h-screen  text-black p-6 border">
       <div className="shadow-xl rounded-2xl p-6 flex items-center w-3/4 mx-auto border border-white">
         <div className="w-24 h-24 rounded-full border-4 border-yellow-200  flex items-center justify-center">
          <img>
@@ -153,7 +158,7 @@ function UserProfile() {
           </div>
         )}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 

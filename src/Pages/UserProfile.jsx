@@ -107,7 +107,7 @@ console.log("Extracted userId:", userId);
       </div>
 
      
-      <motion.div 
+      <div 
       whileHover={{ scale: 1.03 }}
       transition={{ duration: 0.2 }}
       className="mt-6 w-3/4 mx-auto">
@@ -169,7 +169,7 @@ console.log("Extracted userId:", userId);
 
        
         {tab === "work" && (
-          <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <div className="text-black border-1 border-white p-6 rounded-lg shadow-lg">
           <div className="flex items-center space-x-5">
           <h2 className="text-xl font-semibold text-yellow-200">Showcased Work</h2>
           <button 
@@ -210,7 +210,7 @@ console.log("Extracted userId:", userId);
             </button>
           </div>
         )}
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

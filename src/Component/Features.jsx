@@ -18,7 +18,7 @@ const features = [
     title: "Collaborate and Grow",
     description:
       "Take your creative career to new heights by leveraging sponsorships and partnerships. Connect with brands that align with your values.",
-    image: "/hp3.jpg",
+    image: "/h3.jpeg",
   },
 ];
 

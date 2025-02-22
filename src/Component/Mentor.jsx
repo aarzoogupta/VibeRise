@@ -9,8 +9,8 @@ const categories = [
 ];
 
 const mentors = [
-  { id: 1, name: "Dance Mentor", role: "Professional Choreographer", expertise: "Contemporary Dance", image: "https://v0.dev/placeholder.svg", rating: 4.9, reviews: 150 },
-  { id: 2, name: "Music Mentor", role: "Professional Composer", expertise: "Classical Music", image: "https://v0.dev/placeholder.svg", rating: 4.8, reviews: 120 }
+  { id: 1, name: "Dance Mentor", role: "Professional Choreographer", expertise: "Contemporary Dance", image: "./danceMentor.jpg", rating: 4.9, reviews: 150 },
+  { id: 2, name: "Music Mentor", role: "Professional Composer", expertise: "Classical Music", image: "./musicMentor.jpeg", rating: 4.8, reviews: 120 }
 ];
 
 const Mentor = () => {
@@ -20,8 +20,8 @@ const Mentor = () => {
     <div className="max-w-7xl mx-auto px-4 py-12">
       {/* Hero Section */}
       <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center py-16 space-y-6">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">Instant Access to Success</h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">Why figure it out alone when you can learn from someone who's already nailed it?</p>
+        <h1 className="text-white text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">Instant Access to Success</h1>
+        <p className="text-lg text-White-600 max-w-3xl mx-auto">Why figure it out alone when you can learn from someone who's already nailed it?</p>
       </motion.section>
 
       {/* Categories */}

@@ -3,27 +3,27 @@ import { motion } from 'framer-motion';
 import Layout from '../Component/Layout';
 
 const mentorData = {
-  name: "Abhishek Singh",
-  image: "https://via.placeholder.com/150",
-  badges: ["Top 5%", "11 Bookings"],
+  name: " Sneha Dance Mentor",
+  image: "./danceMentor.jpg",
+  badges: ["Expert Dance Guidance", "Mentor Approved"],
   description: [
-    "LinkedIn Top Voice'23 | Moody's | NITI Aayog",
-    "EAC-PM (Intern, Govt of India)",
-    "Guest Speaker @OPJindal, NIT-R, IITD",
-    "Statistics, Kirori Mal College | LinkedIn ICKP'23",
-    "10+ Featured in LinkedIn News",
-    "Finance, Data, Statistics & Strategy"
+    "Personalized Dance Mentorship",
+    "Elevate Your Technique & Style",
+    "Expert Guidance on Choreography",
+    "Performance Coaching & Feedback",
+    "Connect with Top Dance Mentors",
+    "Inspiring the Next Generation of Dancers"
   ],
   services: [
     {
-      title: "Referral at Moody's",
-      responseTime: "Replies in 2 days",
+      title: "One-on-One Dance Mentorship",
+      responseTime: "Replies in 24 hours",
       priority: "Priority DM",
       price: "₹0",
     },
     {
-      title: "Have a question?",
-      responseTime: "Replies in 2 days",
+      title: "Choreography & Technique Review",
+      responseTime: "Replies in 24 hours",
       priority: "Priority DM",
       price: "₹0",
       rating: 5,
@@ -31,22 +31,22 @@ const mentorData = {
   ],
   bookings: [
     {
-      title: "Let's Connect",
+      title: "Transform Your Dance",
       tag: "Popular",
       options: [
         {
-          duration: "20 mins",
-          type: "Video Meeting",
-          oldPrice: "₹1,999",
-          newPrice: "₹99"
+          duration: "30 mins",
+          type: "Live Dance Coaching",
+          oldPrice: "₹2,500",
+          newPrice: "₹199"
         },
         {
-          title: "Resume review",
-          description: "Your CV is often your first impression—let's make it count.",
-          duration: "20 mins",
-          type: "Video Meeting",
-          oldPrice: "₹1,200",
-          newPrice: "₹994",
+          title: "Choreography & Technique Session",
+          description: "Get tailored feedback on your routine and improve your dance technique.",
+          duration: "30 mins",
+          type: "Video Consultation",
+          oldPrice: "₹1,500",
+          newPrice: "₹999",
           rating: 5
         }
       ]

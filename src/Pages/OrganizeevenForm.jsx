@@ -30,7 +30,7 @@ function OrganizeEvent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-opacity-10 color-black p-6 flex justify-center items-center">
+    <div className="min-h-screen color-black p-6 flex justify-center items-center">
       <form onSubmit={handleSubmit} className="bg-white-400 text-black p-6 rounded-lg shadow-lg w-full max-w-lg border border-white-500">
         <h2 className="text-2xl font-semibold text-yellow-200 mb-4 text-center">🎭 Organize an Event</h2>
 

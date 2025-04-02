@@ -1,14 +1,14 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import useGetInfo from '../hooks/useGetInfo'; // Import the custom hook
+import useGetInfo from '../hooks/useGetInfo'; 
 import React from 'react';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { getUserInfo, loading } = useGetInfo(); // Use the hook
+    const { getUserInfo, loading } = useGetInfo(); 
 
     const loginf = async () => {
         const user = await getUserInfo(email, password);

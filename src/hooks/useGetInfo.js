@@ -21,7 +21,7 @@ const useGetInfo = () => {
           return { ...userData, id: querySnapshot.docs[0].id };
         } else {
           setLoading(false);
-          return null; // Password does not match
+          return null; 
         }
       } else {
         setLoading(false);

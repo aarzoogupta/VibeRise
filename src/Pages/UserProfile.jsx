@@ -32,7 +32,7 @@ function UserProfile() {
     }
   };
 
-    const userData = JSON.parse(localStorage.getItem("user"));  
+const userData = JSON.parse(localStorage.getItem("user"));  
 const userId = userData?.id;  
 console.log("Extracted userId:", userId);
 
@@ -86,7 +86,7 @@ console.log("Extracted userId:", userId);
         </div>
 
         <div className="ml-6">
-          <h1 className="text-3xl font-bold">John Doe</h1>
+          <h1 className="text-3xl font-bold">{userData.name}</h1>
           <p className="text-yellow-200">🎭 Dancer | 🎸 Musician | 🎥 Filmmaker</p>
         </div>
       </div>

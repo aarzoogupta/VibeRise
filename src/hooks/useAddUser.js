@@ -1,16 +1,12 @@
 import { db } from '../Firebase/FirebaseConfig';
 import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
 
-/**
- * Adds a new user to Firestore if the email is not already registered.
- * @param {Object} userData - User data { name, email, password, profilePic }
- * @returns {Object} { success: boolean, message: string }
- */
+
 const useAddUser = async (userData) => {
     try {
         const usersRef = collection(db, "users");
 
-        // Check if user already exists
+        
         const q = query(usersRef, where("email", "==", userData.email));
         const querySnapshot = await getDocs(q);
 

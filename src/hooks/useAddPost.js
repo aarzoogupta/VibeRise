@@ -1,6 +1,5 @@
-import { db, storage } from "../Firebase/FirebaseConfig";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { db} from "../Firebase/FirebaseConfig";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 
 /**
  * Adds a new post to Firestore under the correct user ID.

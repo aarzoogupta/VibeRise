@@ -18,8 +18,8 @@ function Signup() {
         const newUser = {
             name,
             email,
-            password, // Hash before storing for security
-            profilePic: "", // Default profile picture
+            password, 
+            profilePic: "", 
         };
 
         const result = await useAddUser(newUser);
@@ -35,35 +35,36 @@ function Signup() {
 
     return (
         <div className='flex justify-center items-center h-screen'>
-            <div className='bg-gray-800 px-10 py-10 rounded-xl'>
+            
+            <div className=' px-10 py-10 rounded-2xl shadow-xl border-2 border-transparent hover:border-pink-500 transition-all duration-300'>
                 <h1 className='text-center text-white text-xl mb-4 font-bold'>Signup</h1>
                 <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-200 outline-none'
+                    className='bg-red-300 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-200 outline-none'
                     placeholder='Name'
                 />
                 <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-200 outline-none'
+                    className='bg-red-300 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-200 outline-none'
                     placeholder='Email'
                 />
                 <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-200 outline-none'
+                    className='bg-red-300 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-200 outline-none'
                     placeholder='Password'
                 />
                 <button
                     onClick={signup}
-                    className='bg-red-500 w-full text-white font-bold px-2 py-2 rounded-lg'>
+                    className='bg-red-300 w-full text-white font-bold px-2 py-2 rounded-lg'>
                     Signup
                 </button>
-                <h2 className='text-white mt-3'>Have an account? <Link className='text-red-500 font-bold' to={'/login'}>Login</Link></h2>
+                <h2 className='text-white mt-3'>Have an account? <Link className='text-pink-500 font-bold' to={'/login'}>Login</Link></h2>
             </div>
         </div>
     );

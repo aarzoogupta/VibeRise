@@ -1,3 +1,4 @@
+import Chat from "./Chat";
 import Footer from "./Footer"
 import Navbar from "./Navbar"
 import React from "react";
@@ -6,6 +7,7 @@ function Layout({ children }) {
     return (
         <div>
             <Navbar/>
+            <Chat/>
             <div className="content min-h-screen">
                 {children}
             </div>

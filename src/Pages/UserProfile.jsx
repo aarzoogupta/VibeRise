@@ -56,9 +56,7 @@ console.log("Extracted userId:", userId);
     setPosts([postWithUser, ...posts]); // Add new post to the top
   };
 
-  const [aboutMe, setAboutMe] = useState([
-    "Sunidhi Chauhan is an Indian playback singer. Known for her vocal range and versatility, she has recorded songs for films in several Indian languages and received accolades including three Filmfare Awards and a Filmfare Award South .She is often praised for her charismatic stage presence and Vocal belting ability.Passionate artist bringing creativity to life. Always looking for new opportunities!"
-  ]);
+  const [aboutMe, setAboutMe] = useState([]);
   const [newInfo, setNewInfo] = useState("");
   const [showInput, setShowInput] = useState(false); 
 

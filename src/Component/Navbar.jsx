@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Chat from "./Chat";
 
 function Navbar() {
   const [user, setUser] = useState(null);
@@ -16,7 +17,6 @@ function Navbar() {
       <div className="ml-4">
 
         <img src="./logo.png" alt="Logo" className="w-32 h-32 max-w-32 max-h-32 object-contain" />
-
       </div>
       <div className="mr-8">
         <ul className="flex space-x-6 text-lg font-medium">
